@@ -76,7 +76,7 @@ def clean_text(text, chapter_num):
         print(f"Chapter {chapter_num} has multiple chapter headings")
         print(f"Chapter count: {chapter_count}")
 
-        # CHANGE THE FILE NAME HERE !!!!!!!
+        # save the text to a file
         text_file = f"AEDD_{chapter_num}.txt"
         with open(text_file, "w", encoding="utf-8") as file:
             file.write("Number of chapter headings: " + str(chapter_count) + "\n\n")
@@ -88,8 +88,7 @@ def clean_text(text, chapter_num):
 def processChapters (start, end):
     text = ""
     for chapter_num in range(start, end + 1):
-        # CHANGE THE URL HERE !!!!!!!
-        url = f"www.insertutlhere.com/thenchapter-{chapter_num}"
+        url = f"https://wuxia.click/chapter/alchemy-emperor-of-the-divine-dao-{chapter_num}"
         webpage_text = get_text_from_url(url)
         if webpage_text:
             cleaned_text = clean_text(webpage_text, chapter_num)
@@ -121,9 +120,7 @@ if __name__ == "__main__":
         
         text = processChapters(i, min(i + interval - 1, end))
 
-        '''
-        # CHANGE THE FILE NAME HERE !!!!!!!
+        # save the text to a file
         text_file = f"AEDD_{i}_to_{min(i + interval - 1, end)}.txt"
         with open(text_file, "w", encoding="utf-8") as file:
             file.write(text)
-        '''
