@@ -91,9 +91,7 @@ def text_to_speech(text, output_file):
 def processChapters (start, end):
     text = ""
     for chapter_num in range(start, end + 1):
-
-        # INSERT URL HERE !!!!!!!!
-        url = f"www.insertutlhere.com/thenchapter-{chapter_num}"
+        url = f"https://wuxia.click/chapter/alchemy-emperor-of-the-divine-dao-{chapter_num}"
         webpage_text = get_text_from_url(url)
         if webpage_text:
             cleaned_text = clean_text(webpage_text, chapter_num)
@@ -116,8 +114,6 @@ if __name__ == "__main__":
         
         text = processChapters(i, min(i + interval - 1, end))
 
-
-        # CHANGE THE OUTPUT FILE NAME HERE !!!!!!!!
         output_file = f"{i}-{min(i + interval - 1, end)} - Alchemy Emperor of the Divine Dao.mp3"
         
         print(f"Saving text to speech output to {output_file}...")
